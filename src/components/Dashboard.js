@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ProjectItem from './project/ProjectItem';
+import ProjectItem from './Project/ProjectItem';
 
 export default class Dashboard extends Component {
     render() {
