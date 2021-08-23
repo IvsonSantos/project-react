@@ -13,11 +13,13 @@ export default class AddProject extends Component {
             start_date : "",
             end_date : ""
         };
+
+        this.onChange = this.onChange.bind(this);
     }
 
     onChange(e) {
         this.setState (
-            { projectName: e.target.value }
+            { [e.target.name] : e.target.value }
         )
     }
 
@@ -32,41 +34,46 @@ export default class AddProject extends Component {
                                     Create Project form
                                 </h5>
                                 <hr />
-                                <form>
+                                <form onSubmit={onSubmit}>
                                     <div class="form-group">
                                         <input type="text" 
                                                class="form-control form-control-lg" 
                                                laceholder="Project Name"
                                                name="projectName"
                                                value = { this.state.projectName }
-                                               onChange = {this.onChange.bind(this)} />
+                                               onChange = {this.onChange} />
                                     </div>
                                     <div class="form-group">
                                         <input type="text" 
                                                class="form-control" 
                                                placeholder="Unique Project ID"
                                                name="projectIdentifier" 
-                                               value = { this.state.projectIdentifier }/>
+                                               value = { this.state.projectIdentifier }
+                                               onChange = {this.onChange} />
                                     </div>
                                     <div class="form-group">
                                         <textarea class="form-control form-control-lg" 
                                                   placeholder="Project Description"
                                                   name="description"
-                                                  value = { this.state.description }></textarea>
+                                                  value = { this.state.description }
+                                                  onChange = {this.onChange} >
+                                        </textarea>
                                     </div>
                                     <h6>Start Date</h6>
                                     <div class="form-group">
                                         <input type="date" 
                                                class="form-control form-control-lg" 
                                                name="start_date"
-                                               value = { this.state.start_date } />
+                                               value = { this.state.start_date }
+                                               onChange = {this.onChange} />
                                     </div>
                                     <h6>Estimated End Date</h6>
                                     <div class="form-group">
                                         <input type="date" 
                                                class="form-control form-control-lg" 
                                                name="end_date"
-                                               value = { this.state.end_date } />
+                                               value = { this.state.end_date }
+                                               onChange = {this.onChange} />
                                     </div>
 
                                     <input type="submit" 
