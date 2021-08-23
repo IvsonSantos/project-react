@@ -15,12 +15,26 @@ export default class AddProject extends Component {
         };
 
         this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange(e) {
         this.setState (
             { [e.target.name] : e.target.value }
         )
+    }
+
+    onSubmit(e) {
+
+        
+
+        const newProject = {
+            projectName : this.state.projectName,
+            projectIdentifier : this.state.projectIdentifier,
+            description : this.state.description,
+            start_date : this.state.start_date,
+            end_date : this.state.end_date
+        };
     }
 
     render() {
@@ -34,7 +48,7 @@ export default class AddProject extends Component {
                                     Create Project form
                                 </h5>
                                 <hr />
-                                <form onSubmit={onSubmit}>
+                                <form onSubmit={this.onSubmit}>
                                     <div class="form-group">
                                         <input type="text" 
                                                class="form-control form-control-lg" 
